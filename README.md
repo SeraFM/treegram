@@ -19,23 +19,3 @@ $ rails server
 ```
 
 In your browser visit localhost:3000
-
-Motivation
---------
-> **To Practice:**
->- Ruby On Rails project setup
->- User authentication
->- Paperclip gem for uploading files
->- SASS 
->- Unit testing with RSPEC
->- Integration testing with CAPYBARA
-
-Authors
-------
-
-Kathryn Carr, J Sivakumaran, and Lizzie Koehler
-
-License
--------
-
-MIT license
