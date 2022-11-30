@@ -1,0 +1,26 @@
+= render :partial => 'navbar'
+%br
+%br
+.centered
+  %h1.text-bold Explore Users
+%br
+%br
+.centered
+  %table.table
+    %tbody
+      - @users_to_follow.each do |user|
+        %tr
+          %td
+            %h2= user.email
+            = button_to 'Follow', {:controller => 'follows', :action => 'create', :followee => user.id}, {:class => "btn btn-outline-success btn", :method => :post }
+            - user.photos.each  do |photo|
+              %td
+                .p-3.border
+                  = image_tag photo.image(:medium)
+                  %h4= photo.title
+            %br
+            %br 
+%br
+%br
+%br
+.bold-text.fs-4= link_to 'Back to Home page', user_path(current_user)

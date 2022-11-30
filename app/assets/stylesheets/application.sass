@@ -1,0 +1,99 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+body
+  font-family: 'Open Sans Condensed', sans-serif
+  background: #DEF5E5
+
+a
+  text-decoration: none
+  color: black
+
+.border
+  height: 400%
+  width: 400px
+  background-color: #BCEAD5
+
+.centered
+  margin-left: 35%
+
+.sidebar
+  margin: 0
+  padding: 0
+  width: 200px
+  background-color: #8EC3B0
+  position: fixed
+  height: 100%
+  overflow: auto
+
+  a
+    display: block
+    color: black
+    padding: 16px
+    text-decoration: none
+
+    &.active
+      background-color: #04AA6D
+      color: white
+
+    &:hover:not(.active)
+      background-color: #DEF5E5
+    
+    &.addPhoto
+      position: absolute
+      bottom: 8%
+      left: 0%
+      padding: 8px 65px
+      color: black
+      
+    &.logout
+      position: absolute
+      bottom: 1%
+      left: 0%
+      padding: 8px 75px
+      color: black
+    
+    &.title
+      font-family: "Times New Roman", Times, serif
+      font-size: 25px
+
+
+div.content
+  margin-left: 200px
+  padding: 1px 16px
+  height: 1000px
+
+.avatar
+  border-radius: 50%
+  width: 80px
+  height: 80px
+  position: relative
+  left: 61px
+  top: 10px
+
+.email
+  font-weight: bold
+  font-size: 20px
+
+.alert
+  position: absolute
+  top: 1%
+  right: 0%
+
+.contentcentered
+  margin-left: 45%
+  margin-top: 10%

@@ -1,0 +1,21 @@
+.contentcentered
+    %h1{:class => "fw-bold"} Add a Photo
+    %br
+    = form_for Photo.new(), :url => user_photos_path, :html => {:multipart => true} do |form|
+        // Title label
+        = form.label :title, {:class => "fs-2"}
+        // Title input
+        = form.text_field :title
+        %br
+        %br
+        = form.file_field :image
+        %br
+        %br
+        %br
+        = form.submit 'Upload', class: "btn btn-primary btn-lg"
+    %br
+    %br
+    %br
+    %br
+    = link_to 'Back to Home page', user_path(current_user), class: "fs-4"
+

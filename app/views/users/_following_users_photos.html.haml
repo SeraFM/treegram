@@ -1,0 +1,23 @@
+.centered
+  %table.table
+    %tbody
+      - @sorted_photos_array.each do |photo|
+        %tr
+          %td
+            .p-3.border
+              .email #{@users.find(photo.user_id).email}
+              = image_tag photo.image(:medium)
+              %h3= photo.title 
+              - @comments = Comment.where(photo.id)
+              - for comment in @comments do
+                - if comment.photo_id == photo.id
+                  %b= @users.find(comment.user_id).email + ': '
+                  =comment.content
+                  %p
+              %p
+              = 'Add a comment'
+              = form_for [@user, photo, @comment] do |f|
+                = f.hidden_field :user_id, value: @user.id
+                = f.hidden_field :photo_id, value: photo.id
+                = f.text_field :content
+                = f.submit "Add", {:class => "btn btn-success"}

@@ -1,0 +1,31 @@
+.centered
+  %table.table
+    %tbody
+      - @user.photos.each  do |photo|
+        %tr
+          %td
+            .p-3.border
+              .email #{@user.email}
+              %p
+              = image_tag photo.image.url(:medium)
+              %h3= photo.title
+              = button_to 'Delete', url_for(controller: :users, action: :destroy, id: photo.id),method: :delete, class: "btn btn-danger", style:"position:relative; left: 320px; top: -241px", data: {confirm: "Are you sure you want to delete this photo?"}
+              - @comments = Comment.where(photo.id)
+              - for comment in @comments do
+                - if comment.photo_id == photo.id
+                  %b= @users.find(comment.user_id).email + ': '
+                  =comment.content
+                  %p
+              = 'Add a comment'
+              = form_for [@user, photo, @comment] do |f|
+                = f.hidden_field :user_id, value: @user.id
+                = f.hidden_field :photo_id, value: photo.id
+                = f.text_field :content
+                = f.submit "Add", {:class => "btn btn-success"}
+              %br
+              = form_for @tag do |f|
+                = f.hidden_field :photo_id, value: photo.id
+                = f.collection_select :user_id, @users, :id, :email
+                = f.submit "Tag User"
+              - photo.tags.each do |tag|
+                = tag.user.email

@@ -1,0 +1,11 @@
+.sidebar
+    %a.active.title Treegram
+    %img{:class => "avatar", :src => "#{@user.avatar}"}
+    %p
+    %p{:style => "text-align: center;"} #{@user.email}
+    %a{:href => user_path(@user.id), :style => "font-size: 20px;"} Home
+    %a{:href => user_follows_path(current_user), :style => "font-size: 20px;"} Explore Users
+    %a.addPhoto{:href => new_user_photo_path(@user), :class => "btn btn-success"}
+        Add Photo
+    %a.logout{:href => log_out_path,:class => " btn btn-danger"}
+        Logout
