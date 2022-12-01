@@ -17,4 +17,7 @@ $ rake db:migrate
 $ rails server
 ```
 
-In your browser visit localhost:3000
+In your browser visit:
+```
+localhost:3000
+```
